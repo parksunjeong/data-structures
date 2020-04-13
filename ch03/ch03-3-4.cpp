@@ -11,7 +11,7 @@ typedef struct
 polynomial addPoly(polynomial, polynomial);
 void printPoly(polynomial);
 
-void main()
+int main()
 {
 	polynomial A = { 3, { 4, 3, 5, 0 } };
 	polynomial B = { 4, { 3, 1, 0, 2, 1 } };
