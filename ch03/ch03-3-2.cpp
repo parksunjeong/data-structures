@@ -10,7 +10,7 @@ void main()
 
 	for (i = 0; i < 8; i++)
 	{
-		printf("\n address : %u sale %d = %d", (unsigned int) ptr, i, *ptr);
+		printf("\n address : %u sale %d = %d", ptr, i, *ptr);
 		ptr++;
 	}
 }
