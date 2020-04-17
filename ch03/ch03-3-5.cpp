@@ -6,14 +6,6 @@ typedef struct {
 	int value;
 } term;
 
-int main()
-{
-	term a[11] = { {8, 7, 10}, {0, 2, 2},  };
-	term b[11] = { 0, };
-
-	smTranspose(a, b);
-}
-
 void smTranspose(term a[], term b[]) 
 {
 	int m, n, v, i, j, p;
