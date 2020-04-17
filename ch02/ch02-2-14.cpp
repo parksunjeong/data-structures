@@ -2,7 +2,7 @@
 
 long int fact(int);
 
-void main() {
+int main() {
 	int n, result;
 	printf("\n 정수를 입력하세요 : ");
 	scanf_s("%d", &n);
