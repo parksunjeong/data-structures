@@ -29,7 +29,7 @@ int main()
 
 	for (int i = 0; i < b[0].value + 1; i++)
 	{
-		printf("%d %d %D\n", b[i].row, b[i].col, b[i].value);
+		printf("%d %d %d\n", b[i].row, b[i].col, b[i].value);
 	}
 }
 
@@ -43,13 +43,11 @@ void smTranspose(term a[], term b[])
 	b[0].col = m;
 	b[0].value = v;
 
-	if (v > 0) 
-	{
+	if (v > 0) {
 		p = 1;
 		for(i = 0; i < n; i++)
 			for(j = 1; j <= v; j++)
-				if (a[j].col = i) 
-				{
+				if (a[j].col = i) {
 					b[p].row = a[i].col;
 					b[p].col = a[j].row;
 					b[p].value = a[j].value;
