@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 typedef struct ListNode {
 	char data[4];
 	struct ListNode* link;
@@ -40,7 +41,7 @@ void printList(linkedList_h* L) {
 	printf(") \n");
 }
 
-void insertFirstNode(linkedList_h* L, const char* x) {
+void insertFirstNode(linkedList_h* L,const char* x) {
 	listNode* newNode;
 	newNode = (listNode*)malloc(sizeof(listNode));
 	strcpy_s(newNode->data, x);
@@ -81,28 +82,81 @@ void insertLastNode(linkedList_h* L, const char* x) {
 	temp->link = newNode;
 }
 
+void deleteNode(linkedList_h* L, listNode* p) {
+	listNode* pre;
+	if (L->head == NULL)return;
+	if (L->head->link == NULL) {
+		free(L->head);
+		L->head = NULL;
+		return;
+	}
+	else if (p == NULL) return;
+	else {
+		pre = L->head;
+		while (pre->link != p) {
+			pre = pre->link;
+		}
+		pre->link = p->link;
+		free(p);
+	}
+}
+
+listNode* searchNode(linkedList_h* L, char* x) {
+	listNode *temp;
+	temp = L->head;
+	while (temp != NULL) {
+		if (strcmp(temp->data, x) == 0) return temp;
+		else temp = temp->link;
+	}
+	return temp;
+}
+
+void reverse(linkedList_h* L) {
+	listNode* p;
+	listNode* q;
+	listNode* r;
+
+	p = L->head;
+	q = NULL;
+	r = NULL;
+
+	while (p != NULL) {
+		r = q;
+		q = p;
+		p = p->link;
+		q->link = r;
+	}
+	L->head = q;
+}
+
 int main() {
 	linkedList_h* L;
+	listNode *p;
 	L = createLinkedList_h();
-	printf("(1) 공백 리스트 생성하기! \n");
+	printf("(1) 리스트에 [월], [수], [일] 노드 삽입하기! \n");
+	insertLastNode(L, "월"); insertLastNode(L, "수"); insertLastNode(L, "일");
 	printList(L); getchar();
 
-	printf("(2) 리스트에 [수] 노드 삽입하기! \n");
-	insertFirstNode(L, "수");
+	printf("(2) 리스트에 [수] 노드 탐색하기! \n");
+	p = searchNode(L, "수");
+	if (p == NULL) printf("찾는 데이터가 없습니다. \n");
+	else printf("[%s]를 찾았습니다. \n", p->data);
+	getchar();
+
+	printf("(3) 리스트에서 [수] 뒤에 [금] 노드 삽입하기! \n");
+	insertLastNode(L, p, "금");
 	printList(L); getchar();
 
-	printf("(3) 리스트 마지막에 [금] 노드 삽입하기! \n");
-	insertLastNode(L, "금");
+	printf("(4) 리스트에서 [일] 노드 삭제하기! \n");
+	p = searchNode(L, "일");
+	deleteNode(L, p);
 	printList(L); getchar();
 
-	printf("(4) 리스트 첫 번째에 [월] 노드 삽입하기! \n");
-	insertFirstNode(L, "월");
-	printList(L); getchar();
-
-	printf("(5) 리스트 공간을 해제하여 공백 리스트로 만들기! \n");
-	freeLinkedList_h(L);
+	printf("(5) 리스트 순서를 역순으로 바꾸기! \n");
+	reverse(L);
 	printList(L);
 
+	freeLinkedList_h(L);
 	getchar();
 
 	return 0;
