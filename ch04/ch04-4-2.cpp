@@ -101,7 +101,7 @@ void deleteNode(linkedList_h* L, listNode* p) {
 	}
 }
 
-listNode* searchNode(linkedList_h* L, char* x) {
+listNode* searchNode(linkedList_h* L, const char* x) {
 	listNode *temp;
 	temp = L->head;
 	while (temp != NULL) {
@@ -144,7 +144,7 @@ int main() {
 	getchar();
 
 	printf("(3) 리스트에서 [수] 뒤에 [금] 노드 삽입하기! \n");
-	insertLastNode(L, p, "금");
+	insertMiddleNode(L, p, (char*)"금");
 	printList(L); getchar();
 
 	printf("(4) 리스트에서 [일] 노드 삭제하기! \n");
