@@ -8,13 +8,11 @@ element stack[STACK_SIZE];
 int top = -1;
 
 int isEmpty() {
-	if (top == -1) return 1;
-	else return 0;
+	return 0;
 }
 
 int isFull() {
-	if (top == STACK_SIZE - 1) return 1;
-	else return 0;
+	return 0;
 }
 
 void push(element item) {
@@ -23,6 +21,7 @@ void push(element item) {
 		return;
 	}
 	else stack[++top] = item;
+
 }
 
 element pop() {
