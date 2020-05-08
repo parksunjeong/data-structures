@@ -11,7 +11,6 @@ typedef struct  stackNode {
 
 stackNode* top;
 
-
 int isEmpty() {
 	if (top == NULL) return 1;
 	else return 0;
