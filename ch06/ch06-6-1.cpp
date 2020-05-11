@@ -41,7 +41,7 @@ void enQueue(QueueType* Q, element item) {
 }
 
 element deQueue(QueueType* Q) {
-	if (isEmpty(Q)) return;
+	if (isEmpty(Q)) return ' ';
 	else {
 		Q->front++;
 		return Q->queue[Q->front];
@@ -49,7 +49,7 @@ element deQueue(QueueType* Q) {
 }
 
 element peek(QueueType* Q) {
-	if (isEmpty(Q)) exit(1); // 공백 상태이면 연산 중단
+	if (isEmpty(Q)) exit(1);
 	else return Q->queue[Q->front + 1];
 }
 
@@ -62,7 +62,7 @@ void printQ(QueueType* Q) {
 }
 
 int main(void) {
-	QueueType* Q1 = createQueue();  //
+	QueueType* Q1 = createQueue();
 	element data;
 	printf("\n ***** 순차 큐 연산 ***** \n");
 	printf("\n 삽입 A>>");  enQueue(Q1, 'A'); printQ(Q1);
