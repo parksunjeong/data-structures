@@ -66,7 +66,7 @@ void printQ(QueueType *cQ) {
 	printf(" ] ");
 }
 
-void main(void) {
+int main(void) {
 	QueueType* cQ = createQueue();
 	element data;
 	printf("\n ***** 원형 큐 연산 ***** \n");
