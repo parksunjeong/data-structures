@@ -27,7 +27,7 @@ int postorder_FolderSize(treeNode* root) {
 	return FolderSize;
 }
 
-void main() {
+int main() {
 	treeNode* F11 = makeRootNode(120, NULL, NULL);
 	treeNode* F10 = makeRootNode(55, NULL, NULL);
 	treeNode* F9 = makeRootNode(100, NULL, NULL);
